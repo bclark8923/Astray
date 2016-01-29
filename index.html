@@ -38,7 +38,7 @@
                 ballMesh       = undefined,
                 ballRadius     = 0.25, // LESSON: Modify to resize the ball
                 keyAxis        = [0, 0],
-                ironTexture    = THREE.ImageUtils.loadTexture('/ball.png'), // LESSON: modify the ball graphic, try ball-2.jpg
+                ironTexture    = THREE.ImageUtils.loadTexture('/ball.png'), // LESSON: modify the ball graphic, try fire.jpg
                 planeTexture   = THREE.ImageUtils.loadTexture('/concrete.png'), // LESSON: modify the floor, try space.jpg
                 brickTexture   = THREE.ImageUtils.loadTexture('/brick.png'), // LESSON: modify the walls, try space.jpg
                 gameState      = undefined,
@@ -154,11 +154,11 @@
 
                 // Apply "friction". 
                 var lv = wBall.GetLinearVelocity();
-                lv.Multiply(0.95);
+                lv.Multiply(0.95); // LESSON: Change friction of the ground
                 wBall.SetLinearVelocity(lv);
                 
                 // Apply user-directed force.
-                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25);
+                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25); // LESSON: x/y force, 0 and 1 exchange could be a bug
                 wBall.ApplyImpulse(f, wBall.GetPosition());          
                 keyAxis = [0,0];
 
