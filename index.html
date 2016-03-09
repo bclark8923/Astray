@@ -192,7 +192,7 @@
                 camera.position.z += (5 - camera.position.z) * 0.1;
                 light.position.x = camera.position.x;
                 light.position.y = camera.position.y;
-                light.position.z = camera.position.z - 3.7;
+                light.position.z = camera.position.z - 3.7; // LESSON: Change how high the light sits above the maze
 
                 var level = Math.floor((mazeDimension-1)/2 - 4);
                 $('#level').html('Level ' + level + ': ' + timer_elapsed);
