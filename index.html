@@ -116,7 +116,7 @@
                 scene = new THREE.Scene();
 
                 // Add the light.
-                light= new THREE.PointLight(0xffffff, 1); // LESSON 5: Modify to change the color of the light, try 0xff0000
+                light= new THREE.PointLight(0xffffff, 1); // LESSON 5: Modify to change the color of the light, try 0xff0000 - http://www.w3schools.com/colors/colors_picker.asp
                 light.position.set(1, 1, 1.3);
                 scene.add(light);
                 
@@ -154,11 +154,11 @@
 
                 // Apply "friction". 
                 var lv = wBall.GetLinearVelocity();
-                lv.Multiply(0.95); // LESSON (Optional): Change friction of the ground
+                lv.Multiply(0.95); // LESSON 7 (Optional): Change friction of the ground
                 wBall.SetLinearVelocity(lv);
                 
                 // Apply user-directed force.
-                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25); // LESSON (Optional): x/y force, 0 and 1 exchange could be a bug
+                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25); // LESSON 6 (Optional): x/y force, 0 and 1 exchange could be a bug
                 wBall.ApplyImpulse(f, wBall.GetPosition());          
                 keyAxis = [0,0];
 
