@@ -42,7 +42,8 @@
                 planeTexture   = THREE.ImageUtils.loadTexture('/concrete.png'), // LESSON 2a (Optional): modify the floor, try space.jpg
                 brickTexture   = THREE.ImageUtils.loadTexture('/brick.png'), // LESSON 3: modify the walls, try space.jpg
                 gameState      = undefined,
-
+                // LESSON 5: Find own images on google and change graphics
+                
             // Box2D shortcuts
                 b2World        = Box2D.Dynamics.b2World,
                 b2FixtureDef   = Box2D.Dynamics.b2FixtureDef,
@@ -116,7 +117,7 @@
                 scene = new THREE.Scene();
 
                 // Add the light.
-                light= new THREE.PointLight(0xffffff, 1); // LESSON 5: Modify to change the color of the light, try 0xff0000 - http://www.w3schools.com/colors/colors_picker.asp
+                light= new THREE.PointLight(0xffffff, 1); // LESSON 6: Modify to change the color of the light, try 0xff0000 - http://www.w3schools.com/colors/colors_picker.asp
                 light.position.set(1, 1, 1.3);
                 scene.add(light);
                 
@@ -154,11 +155,11 @@
 
                 // Apply "friction". 
                 var lv = wBall.GetLinearVelocity();
-                lv.Multiply(0.95); // LESSON 5a (Optional): Change friction of the ground
+                lv.Multiply(0.95); // LESSON 4a (Optional): Change friction of the ground
                 wBall.SetLinearVelocity(lv);
                 
                 // Apply user-directed force.
-                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25); // LESSON 7 (Optional): x/y force, 0 and 1 exchange could be a bug
+                var f = new b2Vec2(keyAxis[0]*wBall.GetMass()*0.25, keyAxis[1]*wBall.GetMass()*0.25); // LESSON 8 (Optional): x/y force, 0 and 1 exchange could be a bug
                 wBall.ApplyImpulse(f, wBall.GetPosition());          
                 keyAxis = [0,0];
 
@@ -192,7 +193,7 @@
                 camera.position.z += (5 - camera.position.z) * 0.1;
                 light.position.x = camera.position.x;
                 light.position.y = camera.position.y;
-                light.position.z = camera.position.z - 3.7; // LESSON 6 (Optional): Change how high the light sits above the maze - change to 1.7
+                light.position.z = camera.position.z - 3.7; // LESSON 7 (Optional): Change how high the light sits above the maze - change to 1.7
 
                 var level = Math.floor((mazeDimension-1)/2 - 4);
                 $('#level').html('Level ' + level + ': ' + timer_elapsed);
